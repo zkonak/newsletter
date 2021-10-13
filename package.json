@@ -2,18 +2,30 @@
   "name": "newsletter",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "app.js",
+  "type": "module",
   "dependencies": {
     "@vue/cli": "^4.5.13",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "fs": "^0.0.1-security",
     "mjml": "^4.10.3",
+    "node-fetch": "^3.0.0",
     "vue-server-renderer": "^2.6.14",
-    "yarn": "^1.22.15"
+    "winston": "^3.3.3"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@babel/core": "^7.15.8",
+    "@babel/node": "^7.15.8",
+    "@babel/plugin-proposal-class-properties": "^7.14.5",
+    "@babel/plugin-transform-async-to-generator": "^7.14.5",
+    "@babel/preset-env": "^7.15.8",
+    "esm": "^3.2.25",
+    "nodemon": "^2.0.13"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC"
