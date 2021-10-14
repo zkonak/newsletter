@@ -1,29 +1,42 @@
 import fetch from 'node-fetch';
-import config from '../config/env.js';
-import Logger from '../helpers/logger.js'
-const logger = new Logger(winston);
+
+
+
+
+var results=[];
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
+const createData=async (clusterName,time)=>{
+    let query_list=Object.entries(process.env).filter(([key]) => key.includes('TX_KUBERNETES'));
+    console.log(query_list)
 
-const getClusters=async ()=>{
-//clusters
-const response=await fetch(config.prometheus_url+'/api/v1/label/cluster/values');
-const body=await response.json();
+    for(let i =0; i<query_list.length;i++){
 
+        let key= query_list[i][0];
+        let value= query_list[i][1];
+        console.log(key);
+        console.log(value);
 
+        let query=value.replace('$cluster',clusterName).replace('$time',time);
+            console.log(query)
+            let urlString=process.env.PROMETHEUS_URL+'query?query='+query;
 
-if (body.status=="success"){
-   
-   return body.data;
+            const response=await fetch(urlString);
+            const body=await response.json();
+
+            console.log(body)
+
+            if (body.status=="success" && body.data.result.length>0){
+        
+                console.log(body.data.result[0].value[1]);
+                results.push({name:key,value:body.data.result[0].value[1]});
+                }
+    }
+
+    console.log('results:',results);
   
-}else{
-    logger;log("warn", "Cannot find cluster");     
+  
 
 }
 
-
-
-
-}
-
-export default getClusters;
+export default createData;

@@ -53,6 +53,7 @@ import winston from 'winston';
 import config from './src/config/env.js';
 import createMail from './src/views/createMail.js';
 import getClusters from './src/data/getClusters.js';
+import createData from './src/data/createData.js';
 const logger = new Logger(winston);
 const application = new Server(express, null, logger);
 
@@ -60,8 +61,9 @@ const application = new Server(express, null, logger);
 (async () => {
     try {
        
-        await application.listen(config.app_port);
+        await application.listen(process.env.APP_PORT);
         getClusters();
+        createData("'admin-hprd.caas.cagip.group.gca'","2021-10-13T20:10:51.781Z");
         let data={};
         data.text1="aa";
         data.text2="bb";
