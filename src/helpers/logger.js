@@ -1,3 +1,4 @@
+
 class Logger {
     constructor(winston) {
         this.logger = winston.createLogger({
@@ -23,12 +24,12 @@ class Logger {
         };
     }
 
-    log(status, err) {
+    log(status, message) {
         if (status < 500)
-            this.logger.log('warn', err.stack);
+            this.logger.log('warn',new Date(), message);
         else {
-            console.error(err);
-            this.logger.log('error', err.stack);
+            console.error(message);
+            this.logger.log('error', new Date(),message);
         }
     }
 }

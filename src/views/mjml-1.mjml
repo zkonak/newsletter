@@ -1,157 +1,234 @@
 <mjml>
 
-<mj-body background-color="#ECE5F0">
-   <!--section header-->
+  <mj-body background-color="#ECE5F0">
+    <!--section header-->
     <mj-section>
-     <mj-column width="20%">
-         <mj-text>column -1 </mj-text>
-    </mj-column>
-    <mj-column width="60%">
-     <mj-text align="center"> RAPPORT (NOM)  10/09/2021</mj-text>
-    </mj-column>
-    <mj-column width="20%">
-      <mj-text> column -3</mj-text>
-    </mj-column> 
-   </mj-section>
-  <!--section image-->
-
- 
-  <mj-section background-url="https://1.bp.blogspot.com/-TPrfhxbYpDY/Uh3Refzk02I/AAAAAAAALw8/5sUJ0UUGYuw/s1600/New+York+in+The+1960's+-+70's+(2).jpg"
-              background-size="cover"
-              background-repeat="no-repeat">
-   </mj-section>
-    <!--section text-->
-    
- 
-   <mj-section>
-  
-   <mj-column width="100%">
-      <mj-text  font-weight="bold"
-              font-size="20px" align="center">La tête dans les nuages.</mj-text>
-   </mj-column>
-   <mj-column width="100%">
-      <mj-text  font-style="bold" align="center">Ce mois-ci, l'amour est à l'honneur. Allez vous promener avec quelqu'un que vous aimez, passez du temps ensemble et profitez l'un de l'autre (et du paysage, bien sûr).  </mj-text>
-   </mj-column>
+      <mj-column width="20%">
+        <mj-text>column -1 </mj-text>
+      </mj-column>
+      <mj-column width="60%">
+        <mj-text align="center"> RAPPORT {{ dataObject.clusterName }} 10/09/2021</mj-text>
+      </mj-column>
+      <mj-column width="20%">
+        <mj-text> column -3</mj-text>
+      </mj-column>
     </mj-section>
-   
+    <!--section image-->
+
+
+    <mj-section background-url="https://1.bp.blogspot.com/-TPrfhxbYpDY/Uh3Refzk02I/AAAAAAAALw8/5sUJ0UUGYuw/s1600/New+York+in+The+1960's+-+70's+(2).jpg" background-size="cover" background-repeat="no-repeat">
+    </mj-section>
+    <!--section text-->
+
+
+    <mj-section>
+
+      <mj-column width="100%">
+        <mj-text font-weight="bold" font-size="18px" align="center">La tête dans les nuages.</mj-text>
+      </mj-column>
+      <mj-column width="100%">
+        <mj-text font-size="12px" font-style="bold" align="center">Ce mois-ci, l'amour est à l'honneur. Allez vous promener avec quelqu'un que vous aimez, passez du temps ensemble et profitez l'un de l'autre (et du paysage, bien sûr). </mj-text>
+      </mj-column>
+    </mj-section>
+
     <!--section sommaire-->
-    <mj-section  background-color="white">
-    <mj-column width="30%">
+    <mj-section background-color="white">
+      <mj-column width="30%">
         <mj-image src="https://1.bp.blogspot.com/-TPrfhxbYpDY/Uh3Refzk02I/AAAAAAAALw8/5sUJ0UUGYuw/s1600/New+York+in+The+1960's+-+70's+(2).jpg">
         </mj-image>
-        </mj-column>
-        <mj-column width="70%">
-         <mj-text  font-weight="bold">Depuis Juin, la consommation CPU a baissé 3%</mj-text>
-         <mj-text>1
-         </mj-text>
-         <mj-text>2</mj-text>
-         <mj-text>3</mj-text>
-     
-        </mj-column>
-   </mj-section>
+      </mj-column>
+      <mj-column width="70%">
+        <mj-text font-weight="bold">Depuis Juin, la consommation CPU a baissé 3%</mj-text>
+        <mj-text>{{ dataObject.TX_KUBERNETES_WORKER_NUMBER }} Workers
+        </mj-text>
+        <mj-text>{{ dataObject.TX_KUBERNETES_PROD  }} Mise en Prod</mj-text>
+        <mj-text>{{ dataObject.TX_KUBERNETES_PROJET }}</mj-text>
+
+      </mj-column>
+    </mj-section>
 
     <!--section scores-->
     <mj-section>
-        <mj-column background-color="white" width="30%">
-            <mj-text font-size="12px">
-              Consommation
-            </mj-text>
-            <mj-divider border-color="#F45E43"></mj-divider>
-            
-            <mj-image   align="left"  width="15px" src="../../assets/Star1.png"></mj-image>
-           
-            <mj-text font-size="10px" align="left">
-              1 étoile de moins que juin.
-            </mj-text>
-             <mj-text font-size="10px" align="left">
-              Consultez vos ressources 
-              afin d’améliorer votre score
-              de consommation
-            </mj-text>
-          
-            
-          
-        </mj-column>
-        <mj-column  width="5%"></mj-column>
+      <mj-column background-color="white" width="30%">
+        <mj-text font-size="11px" font-weight="bold">
+          Consommation
+        </mj-text>
+        <mj-divider border-color="#F45E43"></mj-divider>
 
-        <mj-column background-color="white" width="30%">
-        
-         <mj-text font-size="12px">
-              Qualité de déploiement
-            </mj-text>
-            <mj-divider border-color="#F45E43"></mj-divider>
-             <mj-image   align="left"  width="15px" src="../../assets/Star1.png"></mj-image>
-             <mj-text font-size="10px" align="left">
-              1 étoile de moins que juin.
-            </mj-text>
-             <mj-text font-size="10px" align="left">
-              Consultez vos ressources 
-              afin d’améliorer votre score
-              de consommation
-            </mj-text>
-          
-        </mj-column>
-        <mj-column  width="5%"></mj-column>
+        <mj-image align="left" width="15px" src="../../assets/Star1.png"></mj-image>
+
+        <mj-text font-size="10px" align="left">
+          1 étoile de moins que juin.
+        </mj-text>
+        <mj-text font-size="10px" align="left">
+          Consultez vos ressources
+          afin d’améliorer votre score
+          de consommation
+        </mj-text>
 
 
-        <mj-column background-color="white" width="30%">
-         <mj-text>
-              Sécurité
-            </mj-text>
-            <mj-divider border-color="#F45E43"></mj-divider>
-             <mj-image   align="left"  width="15px" src="../../assets/Star1.png"></mj-image>
-            <mj-text font-size="10px" align="left">
-              1 étoile de moins que juin.
-            </mj-text>
-             <mj-text font-size="10px" align="left">
-              Consultez vos ressources 
-              afin d’améliorer votre score
-              de consommation
-            </mj-text>
-          
-        
-        </mj-column>
+
+      </mj-column>
+      <mj-column width="5%"></mj-column>
+
+      <mj-column background-color="white" width="30%">
+
+        <mj-text font-size="11px" font-weight="bold">
+          Qualité de déploiement
+        </mj-text>
+        <mj-divider border-color="#F45E43"></mj-divider>
+        <mj-image align="left" width="15px" src="../../assets/Star1.png"></mj-image>
+        <mj-text font-size="10px" align="left">
+          1 étoile de moins que juin.
+        </mj-text>
+        <mj-text font-size="10px" align="left">
+          Consultez vos ressources
+          afin d’améliorer votre score
+          de consommation
+        </mj-text>
+
+      </mj-column>
+      <mj-column width="5%"></mj-column>
+
+
+      <mj-column background-color="white" width="30%">
+        <mj-text font-size="11px" font-weight="bold">
+          Sécurité
+        </mj-text>
+        <mj-divider border-color="#F45E43"></mj-divider>
+        <mj-image align="left" width="15px" src="../../assets/Star1.png"></mj-image>
+        <mj-text font-size="10px" align="left">
+          1 étoile de moins que juin.
+        </mj-text>
+        <mj-text font-size="10px" align="left">
+          Consultez vos ressources
+          afin d’améliorer votre score
+          de consommation
+        </mj-text>
+
+
+      </mj-column>
     </mj-section>
 
     <!--section consommation-->
-     <mj-section border="solid 1px">
-      <mj-column>
-       <mj-text align="center">
-              Consommation
-            </mj-text> </mj-column>
+    <mj-section border="solid 1px">
+      <mj-column width="100%">
+        <mj-text align="center" font-weight="bold">
+          Consommation
+        </mj-text>
+      </mj-column>
+      <mj-column width="100%">
+        <mj-text font-size="11px" align="center">
+          Trop reservé par rapport au consommé et peu de reservation par rapport au nombre de worker
+        </mj-text>
+      </mj-column>
+      <mj-column background-color="white" width="28%">
+        <mj-text> 30 CPU utilisées</mj-text>
+        <mj-divider border-color="#F45E43"></mj-divider>
+        <mj-text>100 CPU réservées</mj-text>
+      </mj-column>
+      <mj-column width="3%"></mj-column>
+
+      <mj-column background-color="white" width="35%">
+        <mj-text>2GB Memory utilisées</mj-text>
+        <mj-divider border-color="#F45E43"></mj-divider>
+        <mj-text>10GB Memory réservées</mj-text>
+      </mj-column>
+      <mj-column width="3%"></mj-column>
+
+      <mj-column background-color="white" width="30%">
+        <mj-text>30 CPU utilisées</mj-text>
+        <mj-divider border-color="#F45E43"></mj-divider>
+        <mj-text>100 CPU réservées</mj-text>
+      </mj-column>
+    </mj-section>
+
+    <!--section Qualité de déploiement-->
+    <mj-section border="solid 1px">
+      <mj-column width="100%">
+        <mj-text align="center" font-weight="bold">
+          Qualité de déploiement-Respect Golden Rules</mj-text>
+      </mj-column>
+
+      <mj-column background-color="white" width="20%">
+        <mj-text align="center">2</mj-text>
+        <mj-text align="center">replicas</mj-text>
+      </mj-column>
+      <mj-column width="3%"></mj-column>
+      <mj-column background-color="white" width="30%">
+        <mj-text align="center">0 </mj-text>
+        <mj-text align="center">liveness/readiness</mj-text>
+      </mj-column>
+
+      <mj-column width="3%"></mj-column>
+      <mj-column background-color="white" width="38%">
+        <mj-text align="center">1ms</mj-text>
+        <mj-text align="center">temps demarage conteneur</mj-text>
+      </mj-column>
+      <mj-spacer height="50px" />
+      <mj-column width="3%"></mj-column>
+      <mj-column background-color="white" width="35%">
 
 
-     </mj-section>
-     <!--section Qualité de déploiement-->
-     <mj-section border="solid 1px">
-      <mj-column>
-       <mj-text align="center">
-              Qualité de déploiement</mj-text> </mj-column>
-     </mj-section>
+        <mj-text>10 déploiements/mois</mj-text>
+      </mj-column>
 
-     <!--section Sécurité-->
-     <mj-section border="solid 1px">
-      <mj-column>
-       <mj-text align="center">
-              Sécurité</mj-text> </mj-column>
-     </mj-section>
+      <mj-column width="3%"></mj-column>
+      <mj-column background-color="white" width="30%">
+        <mj-text>Service Monitor</mj-text>
+      </mj-column>
+
+    </mj-section>
+
+    <!--section Sécurité-->
+    <mj-section border="solid 1px">
+      <mj-column width="100%">
+        <mj-text align="center" font-weight="bold">
+          Sécurité</mj-text>
+      </mj-column>
+
+
+      <mj-column background-color="white" width="28%">
+        <mj-text>Docker Promote</mj-text>
+
+        <mj-text>61 Compliant</mj-text>
+        <mj-divider border-color="#F45E43"></mj-divider>
+        <mj-text>280 Forced</mj-text>
+
+      </mj-column>
+      <mj-column width="3%"></mj-column>
+      <mj-column background-color="white" width="35%">
+        <mj-text>Docker Promote Location</mj-text>
+        <mj-text>10 Extranet</mj-text>
+        <mj-divider border-color="#F45E43"></mj-divider>
+        <mj-text>280 Intranet</mj-text>
+
+
+      </mj-column>
+      <mj-column width="3%"></mj-column>
+
+      <mj-column background-color="white" width="25%">
+        <mj-spacer height="27px" />
+        <mj-text align="center">Taille de l’image</mj-text>
+        <mj-text align="center">10 Extranet</mj-text>
+        <mj-spacer height="30px" />
+
+
+      </mj-column>
+
+    </mj-section>
 
     <!--section footer-->
-     <mj-section background-color="#787878" border="solid 1px">
+    <mj-section background-color="#787878" border="solid 1px">
       <mj-column width="100%">
-       <mj-text align="center" font-size="10px" font-weight="bold">
-              cagip_devops_container@ca-silca.fr</mj-text> </mj-column>
-      </mj-section>
-     
-    <mj-hero
-      
-      mode="fluid-height"
-      
-      background-width="1500px"
-      background-height="369px"
-      background-url=
-         "../../assets/footer.png"/>
-     
-      
+        <mj-text align="center" font-size="10px" font-weight="bold">
+          cagip_devops_container@ca-silca.fr</mj-text>
+      </mj-column>
+    </mj-section>
 
-</mj-body>
+    <mj-hero mode="fluid-height" background-width="1500px" background-height="369px" background-url="../../assets/footer.png" />
+
+
+
+  </mj-body>
+</mjml>

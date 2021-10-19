@@ -2,3 +2,21 @@
 {"level":"error"}
 {"level":"error"}
 {"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"TX_KUBERNETES_WORKER_NUMBER":"4","level":"error"}
+{"level":"error"}
+{"level":"error","message":"Task is running every minute Tue Oct 19 2021 11:43:00 GMT+0200 (Central European Summer Time)"}
+{"TX_KUBERNETES_WORKER_NUMBER":"4","level":"error","message":"2021-10-19T09:43:19.367Z"}
+{"level":"error","message":"2021-10-19T09:43:19.409Z"}
+{"level":"error","message":"2021-10-19T09:44:00.362Z"}
+{"level":"error","message":"2021-10-19T14:48:00.416Z"}
+{"TX_KUBERNETES_CPU_UTILISE":"3.221182399867519","TX_KUBERNETES_MEMORY_UTILISE":"0.1341433520213955","TX_KUBERNETES_REPLICAS":"1","TX_KUBERNETES_WORKER_NUMBER":"4","level":"error","message":"2021-10-19T14:50:53.187Z"}
+{"level":"error","message":"2021-10-19T14:50:53.272Z"}
+{"level":"error","message":"2021-10-19T14:51:00.072Z"}
+{"level":"error","message":"2021-10-19T14:52:00.150Z"}
+{"level":"error","message":"2021-10-19T14:53:00.231Z"}
+{"level":"error","message":"2021-10-19T14:54:00.318Z"}
