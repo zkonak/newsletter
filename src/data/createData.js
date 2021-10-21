@@ -5,7 +5,9 @@ import fetch from 'node-fetch';
 
 var results={};
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
-
+function byteToGigaByte(n) {
+    return  (n / Math.pow(10,9));
+}
 const createData=async (clusterName,time,logger)=>{
     let query_list=Object.entries(process.env).filter(([key]) => key.includes('TX_KUBERNETES'));
    
@@ -17,9 +19,9 @@ const createData=async (clusterName,time,logger)=>{
         
 
         let query=value.replace('$cluster',clusterName).replace('$time',time);
-            
+           
             let urlString=process.env.PROMETHEUS_URL+'query?query='+query;
-
+            console.log(urlString)
             const response=await fetch(urlString);
             const body=await response.json();
 
@@ -35,6 +37,7 @@ const createData=async (clusterName,time,logger)=>{
     
 
     logger.log('results:',results);
+    
     return results;
   
   
