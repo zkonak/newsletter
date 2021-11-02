@@ -39,11 +39,10 @@
       </mj-column>
       <mj-column width="70%">
         <mj-text font-weight="bold">Depuis Juin, la consommation CPU a baissé 3%</mj-text>
-        <mj-text>{{ dataObject.TX_KUBERNETES_WORKER_NUMBER }} Workers
-        </mj-text>
-        <mj-text>{{ dataObject.TX_KUBERNETES_PROD  }} Mise en Prod</mj-text>
-        <mj-text>{{ dataObject.TX_KUBERNETES_PROJET }}</mj-text>
-
+        <mj-text font-family="Orbitron" ><span style="background-color:black;color:#04F404">&nbsp{{ dataObject.TX_KUBERNETES_WORKER_NUMBER }} </span> <span style="font-family:'Open Sans'">&nbspWorkers</span>   </mj-text>
+        <mj-text font-family="Orbitron" ><span style="background-color:black;color:#04F404">&nbsp{{ dataObject.TX_KUBERNETES_PROD  }} </span> <span style="font-family:'Open Sans'">&nbspMise en Prod</span>   </mj-text>
+        <mj-text font-family="Orbitron" ><span style="background-color:black;color:#04F404">&nbsp{{ dataObject.TX_KUBERNETES_PROJET }} </span> <span style="font-family:'Open Sans'">&nbspProjets</span>   </mj-text>
+       
       </mj-column>
     </mj-section>
 
@@ -127,20 +126,20 @@
         <mj-divider border-color="#F45E43"></mj-divider>
         <mj-text>{{dataObject.TX_KUBERNETES_CPU_RESERVE}} CPU réservées</mj-text>
       </mj-column>
-      <mj-column width="3%"></mj-column>
+      <mj-column width="10%"></mj-column>
 
       <mj-column background-color="white" width="35%">
-        <mj-text>{{dataObject.TX_KUBERNETES_MEMORY_UTILISE}}GB Memory utilisées</mj-text>
+        <mj-text>{{dataObject.TX_KUBERNETES_MEMORY_UTILISE_BYTE}}GB Memory utilisées</mj-text>
         <mj-divider border-color="#F45E43"></mj-divider>
-        <mj-text>{{dataObject.TX_KUBERNETES_MEMORY_RESERVE}}GB Memory réservées</mj-text>
+        <mj-text>{{dataObject.TX_KUBERNETES_MEMORY_RESERVE_BYTE}}GB Memory réservées</mj-text>
       </mj-column>
-      <mj-column width="3%"></mj-column>
+    <!--   <mj-column width="3%"></mj-column>
 
-      <mj-column background-color="white" width="30%">
+     <mj-column background-color="white" width="30%">
         <mj-text>{{dataObject.TX_KUBERNETES_WORKERS_UTILISE}} Workers utilisées</mj-text>
         <mj-divider border-color="#F45E43"></mj-divider>
         <mj-text>{{dataObject.TX_KUBERNETES_WORKERS_RESERVE}} Workers réservées</mj-text>
-      </mj-column>
+      </mj-column>-->
     </mj-section>
 
     <!--section Qualité de déploiement-->
@@ -210,7 +209,7 @@
       <mj-column background-color="white" width="25%">
         <mj-spacer height="27px" />
         <mj-text align="center">Taille de l’image</mj-text>
-        <mj-text align="center">{{dataObject.TX_KUBERNETES_TAILLE_IMAGE}}</mj-text>
+        <mj-text align="center">{{dataObject.TX_KUBERNETES_IMAGE_SIZE}}</mj-text>
         <mj-spacer height="30px" />
 
 

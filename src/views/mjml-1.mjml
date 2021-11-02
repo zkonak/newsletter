@@ -1,5 +1,11 @@
 <mjml>
 
+<mj-head>
+    <mj-font name="Orbitron" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" />
+  </mj-head>
+
+  
+    </mj-style>
   <mj-body background-color="#ECE5F0">
     <!--section header-->
     <mj-section>
@@ -39,11 +45,11 @@
       </mj-column>
       <mj-column width="70%">
         <mj-text font-weight="bold">Depuis Juin, la consommation CPU a baissé 3%</mj-text>
-        <mj-text>{{ dataObject.TX_KUBERNETES_WORKER_NUMBER }} Workers
-        </mj-text>
-        <mj-text>{{ dataObject.TX_KUBERNETES_PROD  }} Mise en Prod</mj-text>
-        <mj-text>{{ dataObject.TX_KUBERNETES_PROJET }}</mj-text>
-
+        <mj-text font-family="Orbitron" ><span style="background-color:black;color:#04F404">&nbsp6 </span> <span style="font-family:'Open Sans'">&nbspWorkers</span>   </mj-text>
+        <mj-text font-family="Orbitron" ><span style="background-color:black;color:#04F404">&nbsp6 </span> <span style="font-family:'Open Sans'">&nbspMise en Prod</span>   </mj-text>
+        <mj-text font-family="Orbitron" ><span style="background-color:black;color:#04F404">&nbsp6 </span> <span style="font-family:'Open Sans'">&nbspProjets</span>   </mj-text>
+       
+        
       </mj-column>
     </mj-section>
 
@@ -127,21 +133,21 @@
         <mj-divider border-color="#F45E43"></mj-divider>
         <mj-text>100 CPU réservées</mj-text>
       </mj-column>
-      <mj-column width="3%"></mj-column>
+      <mj-column width="10%"></mj-column>
 
       <mj-column background-color="white" width="35%">
         <mj-text>2GB Memory utilisées</mj-text>
         <mj-divider border-color="#F45E43"></mj-divider>
         <mj-text>10GB Memory réservées</mj-text>
       </mj-column>
-      <mj-column width="3%"></mj-column>
+     <!--    <mj-column width="3%"></mj-column>
 
-      <mj-column background-color="white" width="30%">
+   <mj-column background-color="white" width="30%">
         <mj-text>30 CPU utilisées</mj-text>
         <mj-divider border-color="#F45E43"></mj-divider>
         <mj-text>100 CPU réservées</mj-text>
       </mj-column>
-    </mj-section>
+    </mj-section>-->
 
     <!--section Qualité de déploiement-->
     <mj-section border="solid 1px">

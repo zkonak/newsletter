@@ -18,7 +18,7 @@ const createData=async (clusterName,time,logger)=>{
         let value= query_list[i][1];
         
 
-        let query=value.replace('$cluster',clusterName).replace('$time',time);
+        let query=value.split("$cluster").join(clusterName).replace('$time',time).replace('$tenant',"'cats'");
            
             let urlString=process.env.PROMETHEUS_URL+'query?query='+query;
             console.log(urlString)
@@ -31,12 +31,19 @@ const createData=async (clusterName,time,logger)=>{
         
                 console.log(body.data.result[0].value[1]);
                // results.push({name:key,value:body.data.result[0].value[1]});
-               results[key]=body.data.result[0].value[1];
+               if(key.includes("BYTE")){
+                results[key]=Math.round(byteToGigaByte(body.data.result[0].value[1]));
+
+               }
+               else{
+                    results[key]=Math.round(body.data.result[0].value[1]);
+               }
+              
                 }
     }
     
 
-    logger.log('results:',results);
+    console.log('results:',results);
     
     return results;
   

@@ -20,6 +20,7 @@ const createMail=(dataObject,logger)=>{
         function(){
             return{
                 dataObject
+
             }
         },
         template: fs.readFileSync(file_path, 'utf-8')
@@ -31,8 +32,8 @@ const createMail=(dataObject,logger)=>{
           var mjml_render = mjml(vue_render);
           if(mjml_render.html){
             resolve(mjml_render.html)
-            logger.log(vue_render);
-           // return mjml_render.html;
+           // logger.log(vue_render);
+            return mjml_render.html;
             //send mail html
           }else{
             reject(error);
