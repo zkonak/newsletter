@@ -1,4 +1,7 @@
 <mjml>
+<mj-head>
+    <mj-font name="Orbitron" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" />
+  </mj-head>
 
   <mj-body background-color="#ECE5F0">
     <!--section header-->
