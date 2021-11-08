@@ -20,8 +20,17 @@ const application = new Server(express, null, logger);
         //for
        //  cron.schedule('* * * * *', () => {logger.log('warn',"Task is running every minute " + new Date())});
          let clusters=getClusters();
+         const date = new Date();
+         date.setDate(date.getDate() - 1);
+         const date2= new Date();
+         date2.setDate(date2.getDate() - 30);
+         //RFC 3339 format
+         const formattedDate = date.toISOString();
+         const formattedDate2 = date2.toISOString();
+
+         console.log(formattedDate,formattedDate2);
         //clusters.forEach(element => {
-         let data=await createData("'admin-hprd.caas.cagip.group.gca'","2021-10-13T20:10:51.781Z",logger);;
+         let data=await createData("'admin-hprd.caas.cagip.group.gca'",formattedDate1,formattedDate2,logger);;
          data.clusterName="CATS";
          let html_mail=await createMail(data,logger);
          //console.log('html-mail',html_mail);

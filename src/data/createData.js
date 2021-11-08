@@ -8,7 +8,7 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 function byteToGigaByte(n) {
     return  (n / Math.pow(10,9));
 }
-const createData=async (clusterName,time,logger)=>{
+const createData=async (clusterName,time,time2,logger)=>{
     let query_list=Object.entries(process.env).filter(([key]) => key.includes('TX_KUBERNETES'));
    
 
