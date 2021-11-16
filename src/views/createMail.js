@@ -9,14 +9,7 @@ const createMail=(dataObject,logger)=>{
     let file_path = './src/views/templateNewsletter.mjml';
   
       let mail = new vue({
-        data: /*{
-
-          
-            text1:data.text1,
-            text2:data.text2,
-           
-
-        }*/
+        data: 
         function(){
             return{
                 dataObject

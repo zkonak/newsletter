@@ -8,7 +8,7 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 function byteToGigaByte(n) {
     return  (n / Math.pow(10,9));
 }
-const createData=async (clusterName,time,time2,logger)=>{
+const createData=async (clusterName,tenant,time,logger)=>{
     let query_list=Object.entries(process.env).filter(([key]) => key.includes('TX_KUBERNETES'));
    
 
@@ -18,7 +18,7 @@ const createData=async (clusterName,time,time2,logger)=>{
         let value= query_list[i][1];
         
 
-        let query=value.split("$cluster").join(clusterName).replace('$time',time).replace('$tenant',"'cats'");
+        let query=value.split("$cluster").join(clusterName).replace('$time',time).replace('$tenant',tenant);
            
             let urlString=process.env.PROMETHEUS_URL+'query?query='+query;
             console.log(urlString)

@@ -5,21 +5,31 @@ import winston from 'winston';
 import config from './src/config/env.js';
 import createMail from './src/views/createMail.js';
 import sendMail from './src/views/createMail.js';
-import getClusters from './src/data/getClusters.js';
+import Utils from './src/data/Utils.js';
 import createData from './src/data/createData.js';
+import createScores from './src/data/createScores.js';
 import cron from 'node-cron';
 const logger = new Logger(winston);
 const application = new Server(express, null, logger);
+/*
 
+FROM node:14.18-alpine
+WORKDIR /app
+COPY package*.json package-lock.json ./
+RUN npm i
+EXPOSE 8080
+CMD ["node","app.js"]
+*/ 
 
 (async () => {
     try {
        
         await application.listen(process.env.APP_PORT);
      
-        //for
+
        //  cron.schedule('* * * * *', () => {logger.log('warn',"Task is running every minute " + new Date())});
-         let clusters=getClusters();
+         let clusters=Utils.getClusters();
+       
          const date = new Date();
          date.setDate(date.getDate() - 1);
          const date2= new Date();
@@ -28,11 +38,15 @@ const application = new Server(express, null, logger);
          const formattedDate = date.toISOString();
          const formattedDate2 = date2.toISOString();
 
-         console.log(formattedDate,formattedDate2);
+        
         //clusters.forEach(element => {
-         let data=await createData("'admin-hprd.caas.cagip.group.gca'",formattedDate1,formattedDate2,logger);;
-         data.clusterName="CATS";
-         let html_mail=await createMail(data,logger);
+         let tenant= await Utils.getTenant('admin-hprd.caas.cagip.group.gca')
+         let data1=await createData("'admin-hprd.caas.cagip.group.gca'","'"+tenant+"'",formattedDate,logger);
+         let data2=await createData("'admin-hprd.caas.cagip.group.gca'",formattedDate2,logger);
+         let dataScores= createScores(data1,data2);
+         //data.clusterName="CATS";
+
+         //let html_mail=await createMail(data,logger);
          //console.log('html-mail',html_mail);
         // await sendMail(html_mail,"'admin-hprd.caas.cagip.group.gca'",logger);
 
