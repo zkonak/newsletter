@@ -1,7 +1,7 @@
 FROM node:14.18-alpine
 WORKDIR /app
 COPY package*.json package-lock.json ./
-RUN npm config set registry https://registry.saas.cagip.group.gca/
+RUN npm config set registry https://registry.saas.cagip.group.gca/api/npm/npm-remote/
 RUN npm config set strict-ssl false
 RUN npm install
 

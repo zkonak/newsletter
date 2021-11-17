@@ -42,8 +42,12 @@ CMD ["node","app.js"]
         //clusters.forEach(element => {
          let tenant= await Utils.getTenant('admin-hprd.caas.cagip.group.gca')
          let data1=await createData("'admin-hprd.caas.cagip.group.gca'","'"+tenant+"'",formattedDate,logger);
-         let data2=await createData("'admin-hprd.caas.cagip.group.gca'",formattedDate2,logger);
+         let data2=await createData("'hprd.caas.caa.group.gca'","'"+tenant+"'",formattedDate2,logger);
          let dataScores= createScores(data1,data2);
+         console.log(data1);
+         console.log(data2);
+         console.log(formattedDate);
+         console.log(formattedDate2);
          //data.clusterName="CATS";
 
          //let html_mail=await createMail(data,logger);
