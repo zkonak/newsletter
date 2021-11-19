@@ -6,32 +6,39 @@
   <mj-body background-color="#ECE5F0">
     <!--section header-->
     <mj-section>
-      <mj-column width="20%">
-        <mj-text>column -1 </mj-text>
+      <mj-column vertical-align="middle" width="20%">
+        <mj-image src="https://wiki.saas.cagip.group.gca/download/attachments/51614714/0.jpg?version=1&modificationDate=1616664842052&api=v2"></mj-image>
       </mj-column>
-      <mj-column width="60%">
-        <mj-text align="center"> RAPPORT {{ dataObject.clusterName }} 10/09/2021</mj-text>
+      <mj-column vertical-align="middle" width="60%">
+        <mj-text align="center" font-weight="bold">{{ dataObject.clusterName }} 10/09/2021</mj-text>
       </mj-column>
-      <mj-column width="20%">
-        <mj-text> column -3</mj-text>
+      <mj-column vertical-align="middle" width="20%">
+        <mj-image src="https://wiki.saas.cagip.group.gca/download/thumbnails/10453246/kubernativeFichier%20137.png?version=1&amp;modificationDate=1620664809525&amp;api=v2"></mj-image>
       </mj-column>
     </mj-section>
     <!--section image-->
 
-
-    <mj-section background-url="https://1.bp.blogspot.com/-TPrfhxbYpDY/Uh3Refzk02I/AAAAAAAALw8/5sUJ0UUGYuw/s1600/New+York+in+The+1960's+-+70's+(2).jpg" background-size="cover" background-repeat="no-repeat">
+    <mj-section>
+     <mj-column width="100%">
+    <mj-image  src="https://wiki.saas.cagip.group.gca/download/attachments/51614714/service-level-calculation-Freshcaller-blog-gif.gif?version=1&modificationDate=1629792371877&api=v2">
+     </mj-image>
+    </mj-column>
+   
     </mj-section>
+    
+   
     <!--section text-->
 
 
     <mj-section>
+    <mj-column width="100%">
+        <mj-text font-size="12px" font-style="bold" align="center">{{randomQuote.text}}</mj-text>
+      </mj-column>
 
       <mj-column width="100%">
-        <mj-text font-weight="bold" font-size="18px" align="center">La tête dans les nuages.</mj-text>
+        <mj-text font-weight="bold" font-size="10px" align="right">--{{randomQuote.author}}</mj-text>
       </mj-column>
-      <mj-column width="100%">
-        <mj-text font-size="12px" font-style="bold" align="center">Ce mois-ci, l'amour est à l'honneur. Allez vous promener avec quelqu'un que vous aimez, passez du temps ensemble et profitez l'un de l'autre (et du paysage, bien sûr). </mj-text>
-      </mj-column>
+      
     </mj-section>
 
     <!--section sommaire-->
@@ -43,7 +50,7 @@
       <mj-column width="70%">
         <mj-text font-weight="bold">Depuis Juin, la consommation CPU a baissé 3%</mj-text>
         <mj-text font-family="Orbitron" ><span style="background-color:black;color:#04F404">&nbsp{{ dataObject.TX_KUBERNETES_WORKER_NUMBER }} </span> <span style="font-family:'Open Sans'">&nbspWorkers</span>   </mj-text>
-        <mj-text font-family="Orbitron" ><span style="background-color:black;color:#04F404">&nbsp{{ dataObject.TX_KUBERNETES_PROD  }} </span> <span style="font-family:'Open Sans'">&nbspMise en Prod</span>   </mj-text>
+       
         <mj-text font-family="Orbitron" ><span style="background-color:black;color:#04F404">&nbsp{{ dataObject.TX_KUBERNETES_PROJET }} </span> <span style="font-family:'Open Sans'">&nbspProjets</span>   </mj-text>
        
       </mj-column>
@@ -57,10 +64,10 @@
         </mj-text>
         <mj-divider border-color="#F45E43"></mj-divider>
 
-        <mj-image align="left" width="15px" src="../../assets/Star1.png"></mj-image>
+        <mj-text align="left">{{ dataScores.TX_SCORE_CONSOMMATION }}/5</mj-text>
 
         <mj-text font-size="10px" align="left">
-          1 étoile de moins que juin.
+          {{ dataScores.TX_SCORE_CONSOMMATION_COMPARE }}
         </mj-text>
         <mj-text font-size="10px" align="left">
           Consultez vos ressources
@@ -79,9 +86,9 @@
           Qualité de déploiement
         </mj-text>
         <mj-divider border-color="#F45E43"></mj-divider>
-        <mj-image align="left" width="15px" src="../../assets/Star1.png"></mj-image>
+        <mj-text align="left">{{ dataScores.TX_SCORE_QUALITE }}/5</mj-text>
         <mj-text font-size="10px" align="left">
-          1 étoile de moins que juin.
+          {{ dataScores.TX_SCORE_QUALITE_COMPARE }}
         </mj-text>
         <mj-text font-size="10px" align="left">
           Consultez vos ressources
@@ -98,9 +105,9 @@
           Sécurité
         </mj-text>
         <mj-divider border-color="#F45E43"></mj-divider>
-        <mj-image align="left" width="15px" src="../../assets/Star1.png"></mj-image>
+        <mj-text align="left">{{ dataScores.TX_SCORE_SECURITY }}/5</mj-text>
         <mj-text font-size="10px" align="left">
-          1 étoile de moins que juin.
+           {{ dataScores.TX_SCORE_SECURITY_COMPARE }}
         </mj-text>
         <mj-text font-size="10px" align="left">
           Consultez vos ressources

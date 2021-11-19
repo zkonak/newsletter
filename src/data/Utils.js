@@ -24,13 +24,17 @@ const Utils = {
   },
 
   getTenant: async (cluster) => {
+    const returnObject = { tenant: '', numberOfProjects: 0 }
     const response = await fetch(process.env.KGB_URL + cluster.replace('caas', 'managed'))
     const body = await response.json()
 
     // console.log(Utils.json2array(body.projects))
     const arrayProjects = Utils.json2array(body.projects)
+
     if (arrayProjects.length > 0) {
-      return arrayProjects[0].tenant
+      returnObject.tenant = arrayProjects[0].tenant
+      returnObject.numberOfProjects = arrayProjects.length
+      return returnObject
     } else { return null }
   }
 
