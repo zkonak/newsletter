@@ -36,7 +36,27 @@ const Utils = {
       returnObject.numberOfProjects = arrayProjects.length
       return returnObject
     } else { return null }
+  },
+
+
+  getSummaryText: async (data1,data2,type) => {
+    
+    //let text="Par rapport au mois précédent, ";
+    let text="";
+    if (data1===data2){
+        text=text+" Nombre de "+type+" sont même";
+    }
+    else if (data2>data1){
+      
+      text=(data2-data1)+" "+type+" sont supprimés";
   }
+    else if (data2<data1){
+      
+    text=(data1-data2)+" "+type+" sont ajoutés";
+  }
+    return text;
+   
+  },
 
 }
 

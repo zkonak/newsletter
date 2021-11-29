@@ -3,14 +3,14 @@
     <mj-font name="Orbitron" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" />
   </mj-head>
 
-  <mj-body background-color="#ECE5F0">
+  <mj-body background-color="#f1f1f1">
     <!--section header-->
-    <mj-section>
+    <mj-section background-color="white">
       <mj-column vertical-align="middle" width="20%">
-        <mj-image src="https://wiki.saas.cagip.group.gca/download/attachments/51614714/0.jpg?version=1&modificationDate=1616664842052&api=v2"></mj-image>
+        <mj-image  src="https://wiki.saas.cagip.group.gca/download/attachments/51614714/0.jpg?version=1&modificationDate=1616664842052&api=v2"></mj-image>
       </mj-column>
       <mj-column vertical-align="middle" width="60%">
-        <mj-text align="center" font-weight="bold">{{ dataObject.clusterName }} 10/09/2021</mj-text>
+        <mj-text align="center" font-weight="bold" font-size="16px">{{ dataObject.clusterName }}<br><br> 10/09/2021</mj-text>
       </mj-column>
       <mj-column vertical-align="middle" width="20%">
         <mj-image src="https://wiki.saas.cagip.group.gca/download/thumbnails/10453246/kubernativeFichier%20137.png?version=1&amp;modificationDate=1620664809525&amp;api=v2"></mj-image>
@@ -32,48 +32,50 @@
 
     <mj-section>
     <mj-column width="100%">
-        <mj-text font-size="12px" font-style="bold" align="center">{{randomQuote.text}}</mj-text>
+        <mj-text font-size="15px" font-style="bold" align="center">{{randomQuote.text}}</mj-text>
       </mj-column>
 
       <mj-column width="100%">
-        <mj-text font-weight="bold" font-size="10px" align="right">--{{randomQuote.author}}</mj-text>
+        <mj-text font-weight="bold" font-size="12px" align="right">--{{randomQuote.author}}</mj-text>
       </mj-column>
       
     </mj-section>
 
     <!--section sommaire-->
     <mj-section background-color="white">
-      <mj-column width="30%">
-        <mj-image src="https://1.bp.blogspot.com/-TPrfhxbYpDY/Uh3Refzk02I/AAAAAAAALw8/5sUJ0UUGYuw/s1600/New+York+in+The+1960's+-+70's+(2).jpg">
+      <mj-column width="20%">
+        <mj-image src="https://wiki.saas.cagip.group.gca/download/attachments/51614714/58480a44cef1014c0b5e4917.png?version=1&modificationDate=1616664539975&api=v2">
         </mj-image>
       </mj-column>
-      <mj-column width="70%">
-        <mj-text font-weight="bold">Depuis Juin, la consommation CPU a baissé 3%</mj-text>
-        <mj-text font-family="Orbitron" ><span style="background-color:black;color:#04F404">&nbsp{{ dataObject.TX_KUBERNETES_WORKER_NUMBER }} </span> <span style="font-family:'Open Sans'">&nbspWorkers</span>   </mj-text>
+      <mj-column width="80%">
+        <mj-text font-weight="bold">{{ dataObject.TX_SUMMARY }}</mj-text>
+        <mj-text font-family="Orbitron" ><span style="background-color:black;color:#04F404;font-size:25px;font-weight:600">&nbsp{{ dataObject.TX_KUBERNETES_WORKER_NUMBER }} </span> <span style="font-family:'Open Sans'">&nbspWorkers</span> <!--  </mj-text>
        
-        <mj-text font-family="Orbitron" ><span style="background-color:black;color:#04F404">&nbsp{{ dataObject.TX_KUBERNETES_PROJET }} </span> <span style="font-family:'Open Sans'">&nbspProjets</span>   </mj-text>
+        <mj-text font-family="Orbitron" >--><span style="margin-left:100px;background-color:black;color:#04F404;font-size:25px;font-weight:600">&nbsp{{ dataObject.TX_KUBERNETES_PROJET }} </span> <span style="font-family:'Open Sans'">&nbspProjets</span>   </mj-text>
        
       </mj-column>
     </mj-section>
 
     <!--section scores-->
     <mj-section>
-      <mj-column background-color="white" width="30%">
-        <mj-text font-size="11px" font-weight="bold">
+      <mj-column background-color="#537D33" width="30%">
+        <mj-text font-size="15px" font-weight="bold" color="white">
           Consommation
         </mj-text>
+        <mj-spacer height="15px" />
+       
         <mj-divider border-color="#F45E43"></mj-divider>
 
-        <mj-text align="left">{{ dataScores.TX_SCORE_CONSOMMATION }}/5</mj-text>
+        <mj-text color="white" align="left" font-size="18px" font-weight="bold">{{ dataScores.TX_SCORE_CONSOMMATION }}/5</mj-text>
 
-        <mj-text font-size="10px" align="left">
+        <mj-text color="white" font-size="12px" align="left">
           {{ dataScores.TX_SCORE_CONSOMMATION_COMPARE }}
         </mj-text>
-        <mj-text font-size="10px" align="left">
+      <!--  <mj-text font-size="12px" align="left">
           Consultez vos ressources
           afin d’améliorer votre score
           de consommation
-        </mj-text>
+        </mj-text>-->
 
 
 
@@ -82,66 +84,69 @@
 
       <mj-column background-color="white" width="30%">
 
-        <mj-text font-size="11px" font-weight="bold">
+        <mj-text font-size="15px" font-weight="bold">
           Qualité de déploiement
         </mj-text>
         <mj-divider border-color="#F45E43"></mj-divider>
-        <mj-text align="left">{{ dataScores.TX_SCORE_QUALITE }}/5</mj-text>
-        <mj-text font-size="10px" align="left">
+        <mj-text align="left" font-size="18px" font-weight="bold">{{ dataScores.TX_SCORE_QUALITE }}/5</mj-text>
+        <mj-text font-size="12px" align="left">
           {{ dataScores.TX_SCORE_QUALITE_COMPARE }}
         </mj-text>
-        <mj-text font-size="10px" align="left">
+        <!-- <mj-text font-size="12px" align="left">
           Consultez vos ressources
           afin d’améliorer votre score
           de consommation
-        </mj-text>
+        </mj-text>-->
 
       </mj-column>
       <mj-column width="5%"></mj-column>
 
 
-      <mj-column background-color="white" width="30%">
-        <mj-text font-size="11px" font-weight="bold">
+      <mj-column background-color="#768089" width="30%">
+        <mj-text font-size="15px" color="white" font-weight="bold">
           Sécurité
         </mj-text>
+         <mj-spacer height="15px" />
+      
         <mj-divider border-color="#F45E43"></mj-divider>
-        <mj-text align="left">{{ dataScores.TX_SCORE_SECURITY }}/5</mj-text>
-        <mj-text font-size="10px" align="left">
+        <mj-text color="white" align="left" font-size="18px" font-weight="bold">{{ dataScores.TX_SCORE_SECURITY }}/5</mj-text>
+        <mj-text color="white" font-size="12px" align="left">
            {{ dataScores.TX_SCORE_SECURITY_COMPARE }}
         </mj-text>
-        <mj-text font-size="10px" align="left">
+      <!--  <mj-text font-size="12px" align="left">
           Consultez vos ressources
           afin d’améliorer votre score
           de consommation
-        </mj-text>
+        </mj-text>-->
 
 
       </mj-column>
     </mj-section>
 
     <!--section consommation-->
-    <mj-section border="solid 1px">
+    <mj-section background-color="#537D33">
       <mj-column width="100%">
-        <mj-text align="center" font-weight="bold">
+        <mj-text  color="white"  align="center" font-weight="bold"  font-size="18px">
           Consommation
         </mj-text>
       </mj-column>
       <mj-column width="100%">
-        <mj-text font-size="11px" align="center">
+      <mj-spacer height="20px" />
+       <!-- <mj-text font-size="11px" align="center">
           Trop reservé par rapport au consommé et peu de reservation par rapport au nombre de worker
-        </mj-text>
+        </mj-text>-->
       </mj-column>
       <mj-column background-color="white" width="28%">
-        <mj-text> {{dataObject.TX_KUBERNETES_CPU_UTILISE}} CPU utilisées</mj-text>
+        <mj-text><span style="font-size:18px;font-weight:bold"> {{dataObject.TX_KUBERNETES_CPU_UTILISE}}</span> CPU utilisées</mj-text>
         <mj-divider border-color="#F45E43"></mj-divider>
-        <mj-text>{{dataObject.TX_KUBERNETES_CPU_RESERVE}} CPU réservées</mj-text>
+        <mj-text><span style="font-size:18px;font-weight:bold">{{dataObject.TX_KUBERNETES_CPU_RESERVE}}</span> CPU réservées</mj-text>
       </mj-column>
       <mj-column width="10%"></mj-column>
 
       <mj-column background-color="white" width="35%">
-        <mj-text>{{dataObject.TX_KUBERNETES_MEMORY_UTILISE_BYTE}}GB Memory utilisées</mj-text>
+        <mj-text><span style="font-size:18px;font-weight:bold">{{dataObject.TX_KUBERNETES_MEMORY_UTILISE_BYTE}} </span>GB Memory utilisées</mj-text>
         <mj-divider border-color="#F45E43"></mj-divider>
-        <mj-text>{{dataObject.TX_KUBERNETES_MEMORY_RESERVE_BYTE}}GB Memory réservées</mj-text>
+        <mj-text><span style="font-size:18px;font-weight:bold">{{dataObject.TX_KUBERNETES_MEMORY_RESERVE_BYTE}} </span>GB Memory réservées</mj-text>
       </mj-column>
     <!--   <mj-column width="3%"></mj-column>
 
@@ -153,82 +158,92 @@
     </mj-section>
 
     <!--section Qualité de déploiement-->
-    <mj-section border="solid 1px">
-      <mj-column width="100%">
-        <mj-text align="center" font-weight="bold">
-          Qualité de déploiement-Respect Golden Rules</mj-text>
+    <mj-section background-color="white">
+      <mj-column width="100%" >
+        <mj-text align="center" font-weight="bold" font-size="18px">
+          Qualité de déploiement</mj-text>
       </mj-column>
+       <mj-spacer height="20px" />
 
-      <mj-column background-color="white" width="20%">
-        <mj-text align="center">{{dataObject.TX_KUBERNETES_REPLICAS}}</mj-text>
-        <mj-text align="center">replicas</mj-text>
+      <mj-column background-color="#f1f1f1" width="20%">
+        <mj-text align="center" font-weight="bold" font-size="18px">{{dataObject.TX_KUBERNETES_REPLICAS}}</mj-text>
+        <mj-text align="center">Replicas</mj-text>
       </mj-column>
       <mj-column width="3%"></mj-column>
-      <mj-column background-color="white" width="30%">
-        <mj-text align="center">{{dataObject.TX_KUBERNETES_LIVENESS}}</mj-text>
-        <mj-text align="center">liveness/readiness</mj-text>
-      </mj-column>
-
-      <mj-column width="3%"></mj-column>
-      <mj-column background-color="white" width="38%">
-        <mj-text align="center">{{dataObject.TX_KUBERNETES_TIME_RESTART}}ms</mj-text>
-        <mj-text align="center">temps demarage conteneur</mj-text>
-      </mj-column>
-      <mj-spacer height="50px" />
-      <mj-column width="3%"></mj-column>
-      <mj-column background-color="white" width="35%">
-
-
-        <mj-text>{{dataObject.TX_KUBERNETES_DEPLOYMENT_MONTHLY}} déploiements/mois</mj-text>
+      <mj-column background-color="#f1f1f1" width="30%">
+        <mj-text align="center" font-weight="bold" font-size="18px">{{dataObject.TX_KUBERNETES_LIVENESS}}</mj-text>
+        <mj-text align="center">Liveness</mj-text>
       </mj-column>
 
       <mj-column width="3%"></mj-column>
-      <mj-column background-color="white" width="30%">
+
+   <mj-column background-color="#f1f1f1" width="30%">
+        <mj-text align="center" font-weight="bold" font-size="18px">{{dataObject.TX_KUBERNETES_READINESS}}</mj-text>
+        <mj-text align="center">Readiness</mj-text>
+      </mj-column>
+
+          <mj-spacer height="40px" />
+      <mj-column background-color="#f1f1f1" width="38%">
+        <mj-text align="center" font-weight="bold" font-size="18px">{{dataObject.TX_KUBERNETES_TIME_RESTART}}ms</mj-text>
+        <mj-text align="center">Temps démarrage du conteneur</mj-text>
+      </mj-column>
+    
+      <mj-column width="3%"></mj-column>
+      <mj-column background-color="#f1f1f1" width="35%">
+
+
+        <mj-text align="center" font-weight="bold" font-size="18px">{{dataObject.TX_KUBERNETES_DEPLOYMENT_MONTHLY}}</mj-text>
+       <mj-text align="center"> <br>Déploiements/Mois</mj-text>
+  
+      </mj-column>
+
+      <mj-column width="3%"></mj-column>
+     <!--<mj-column background-color="white" width="30%">
         <mj-text>Service Monitor</mj-text>
-      </mj-column>
+      </mj-column>--> 
 
     </mj-section>
 
     <!--section Sécurité-->
-    <mj-section border="solid 1px">
+    <mj-section  background-color="#768089">
       <mj-column width="100%">
-        <mj-text align="center" font-weight="bold">
+        <mj-text color="white" align="center" font-weight="bold" font-size="18px">
           Sécurité</mj-text>
       </mj-column>
+       <mj-spacer height="20px" />
 
 
-      <mj-column background-color="white" width="28%">
-        <mj-text>Docker Promote</mj-text>
-
-        <mj-text>{{dataObject.TX_KUBERNETES_DOCKER_PROMOTE_COMPLIANT}} Compliant</mj-text>
-        <mj-divider border-color="#F45E43"></mj-divider>
-        <mj-text>{{dataObject.TX_KUBERNETES_DOCKER_PROMOTE_FORCED}} Forced</mj-text>
-
-      </mj-column>
-      <mj-column width="3%"></mj-column>
       <mj-column background-color="white" width="35%">
-        <mj-text>Docker Promote Location</mj-text>
-        <mj-text>{{dataObject.TX_KUBERNETES_DOCKER_EXTRANET}} Extranet</mj-text>
-        <mj-divider border-color="#F45E43"></mj-divider>
-        <mj-text>{{dataObject.TX_KUBERNETES_DOCKER_INTRANET}} Intranet</mj-text>
+        <mj-text font-weight="bold">Docker Promote</mj-text>
 
+        <mj-text><span style="font-size:18px;font-weight:bold">{{dataObject.TX_KUBERNETES_DOCKER_PROMOTE_COMPLIANT}}</span> Compliant</mj-text>
+        <mj-divider border-color="#F45E43"></mj-divider>
+        <mj-text><span style="font-size:18px;font-weight:bold">{{dataObject.TX_KUBERNETES_DOCKER_PROMOTE_FORCED}}</span> Forced</mj-text>
 
       </mj-column>
-      <mj-column width="3%"></mj-column>
+      <mj-column width="10%"></mj-column>
+      <mj-column background-color="white" width="35%" >
+        <mj-text font-weight="bold">Docker Promote Location</mj-text>
+         <mj-text><span style="font-size:18px;font-weight:bold">{{dataObject.TX_KUBERNETES_DOCKER_INTRANET}}</span> Intranet</mj-text>
+      <mj-divider border-color="#F45E43"></mj-divider>
+       <mj-text><span style="font-size:18px;font-weight:bold">{{dataObject.TX_KUBERNETES_DOCKER_EXTRANET}}</span> Extranet</mj-text>
 
-      <mj-column background-color="white" width="25%">
+      </mj-column>
+    
+
+     <!-- <mj-column background-color="white" width="25%">
         <mj-spacer height="27px" />
         <mj-text align="center">Taille de l’image</mj-text>
         <mj-text align="center">{{dataObject.TX_KUBERNETES_IMAGE_SIZE}}</mj-text>
         <mj-spacer height="30px" />
 
 
-      </mj-column>
+      </mj-column>-->
 
     </mj-section>
 
     <!--section footer-->
-    <mj-section background-color="#787878" border="solid 1px">
+    <mj-section background-color="#787878">
       <mj-column width="100%">
         <mj-text align="center" font-size="10px" font-weight="bold">
           cagip_devops_container@ca-silca.fr</mj-text>

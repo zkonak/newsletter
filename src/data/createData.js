@@ -21,13 +21,17 @@ const createData = async (clusterName, tenant, time, logger) => {
 
     console.log(body)
 
-    if (body.status == 'success' && body.data.result.length > 0) {
+    if (body.status == 'success' ) {
+      if(body.data.result.length > 0){
       console.log(body.data.result[0].value[1])
       // results.push({name:key,value:body.data.result[0].value[1]});
       if (key.includes('BYTE')) {
-        results[key] = Math.round(byteToGigaByte(body.data.result[0].value[1]))
+        results[key] = Math.round(byteToGigaByte(body.data.result[0].value[1]))||0;
       } else {
-        results[key] = Math.round(body.data.result[0].value[1])
+        results[key] = Math.round(body.data.result[0].value[1])||0;
+      }
+    }else{
+      results[key]="0";
       }
     }
   }

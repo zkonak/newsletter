@@ -46,17 +46,20 @@ CMD ["node","app.js"]
          let data1=await createData("'admin-hprd.caas.cagip.group.gca'","'"+returnObject.tenant+"'",formattedDate,logger);
          let data2=await createData("'hprd.caas.caa.group.gca'","'"+returnObject.tenant+"'",formattedDate2,logger);
          let dataScores=await createScores(data1,data2);
-         console.log(data1);
-         console.log(data2);
+        
          console.log(formattedDate);
          console.log(formattedDate2);
          console.log(dataScores);
          data1.clusterName="admin-hprd.caas.cagip.group.gca";
          data1.TX_KUBERNETES_PROJET=returnObject.numberOfProjects;
+         data1.TX_SUMMARY="Par rapport au mois précédent, ";
+         data1.TX_SUMMARY=data1.TX_SUMMARY+await Utils.getSummaryText(data1.TX_KUBERNETES_WORKER_NUMBER,data2.TX_KUBERNETES_WORKER_NUMBER,"Workers")+".";
+         //data1.TX_SUMMARY=data1.TX_SUMMARY+await Utils.getSummaryText(data1.TX_KUBERNETES_PROJET,data2.TX_KUBERNETES_PROJET,"Projet")+".";
          let html_mail=await createMail(data1,dataScores,randomQuote,logger);
          //console.log('html-mail',html_mail);
         // await sendMail(html_mail,"'admin-hprd.caas.cagip.group.gca'",logger);
-       
+        console.log(data1);
+        console.log(data2);
          fs.writeFile('./my-page.html', html_mail, (error) => { console.log(error) });
 
      // });
