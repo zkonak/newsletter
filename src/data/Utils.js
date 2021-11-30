@@ -6,6 +6,7 @@ process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
 const Utils = {
   getClusters: async () => {
     // clusters
+  
     const response = await fetch(process.env.PROMETHEUS_URL + 'label/cluster/values')
     const body = await response.json()
 
@@ -38,25 +39,24 @@ const Utils = {
     } else { return null }
   },
 
-
-  getSummaryText: async (data1,data2,type) => {
-    
-    //let text="Par rapport au mois précédent, ";
-    let text="";
-    if (data1===data2){
-        text=text+" Nombre de "+type+" sont même";
+  getSummaryText: async (data1, data2, type) => {
+    // let text="Par rapport au mois précédent, ";
+    let text = ''
+    if (data1 === data2) {
+      text = text + ' Nombre de ' + type + ' sont mêmes.'
+    } else if (data2 > data1) {
+      text = (data2 - data1) + ' ' + type + ' sont supprimés.'
+    } else if (data2 < data1) {
+      text = (data1 - data2) + ' ' + type + ' sont ajoutés.'
     }
-    else if (data2>data1){
-      
-      text=(data2-data1)+" "+type+" sont supprimés";
-  }
-    else if (data2<data1){
-      
-    text=(data1-data2)+" "+type+" sont ajoutés";
-  }
-    return text;
-   
+    return text
   },
+
+  getPourcentText: async (dataReserve, dataUtil) => {
+    const text = Math.round(dataUtil * 100 / dataReserve, 0)
+
+    return text + '%'
+  }
 
 }
 

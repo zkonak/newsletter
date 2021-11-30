@@ -10,7 +10,7 @@
         <mj-image  src="https://wiki.saas.cagip.group.gca/download/attachments/51614714/0.jpg?version=1&modificationDate=1616664842052&api=v2"></mj-image>
       </mj-column>
       <mj-column vertical-align="middle" width="60%">
-        <mj-text align="center" font-weight="bold" font-size="16px">{{ dataObject.clusterName }}<br><br> 10/09/2021</mj-text>
+        <mj-text align="center" font-weight="bold" font-size="16px">{{ dataObject.clusterName }}<br><br> {{ dataObject.date }}</mj-text>
       </mj-column>
       <mj-column vertical-align="middle" width="20%">
         <mj-image src="https://wiki.saas.cagip.group.gca/download/thumbnails/10453246/kubernativeFichier%20137.png?version=1&amp;modificationDate=1620664809525&amp;api=v2"></mj-image>
@@ -137,6 +137,7 @@
         </mj-text>-->
       </mj-column>
       <mj-column background-color="white" width="28%">
+        <mj-text font-size="20px" font-weight="bold" align="center">{{dataObject.TX_KUBERNETES_CPU_POURCENT}}</mj-text>
         <mj-text><span style="font-size:18px;font-weight:bold"> {{dataObject.TX_KUBERNETES_CPU_UTILISE}}</span> CPU utilisées</mj-text>
         <mj-divider border-color="#F45E43"></mj-divider>
         <mj-text><span style="font-size:18px;font-weight:bold">{{dataObject.TX_KUBERNETES_CPU_RESERVE}}</span> CPU réservées</mj-text>
@@ -144,6 +145,7 @@
       <mj-column width="10%"></mj-column>
 
       <mj-column background-color="white" width="35%">
+      <mj-text font-size="20px" font-weight="bold" align="center">{{dataObject.TX_KUBERNETES_MEMORY_POURCENT}}</mj-text>
         <mj-text><span style="font-size:18px;font-weight:bold">{{dataObject.TX_KUBERNETES_MEMORY_UTILISE_BYTE}} </span>GB Memory utilisées</mj-text>
         <mj-divider border-color="#F45E43"></mj-divider>
         <mj-text><span style="font-size:18px;font-weight:bold">{{dataObject.TX_KUBERNETES_MEMORY_RESERVE_BYTE}} </span>GB Memory réservées</mj-text>

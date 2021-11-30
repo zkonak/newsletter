@@ -69,16 +69,14 @@ const getScoreSecurity = async (data) => {
   return Math.round(scoreSecurity / 2, 0)
 }
 
-const getDifferenceeAsString= async (difference) => {
-  if(difference>0){
-    return "+"+difference+" plus que mois précédent";
+const getDifferenceeAsString = async (difference) => {
+  if (difference > 0) {
+    return '+' + difference + ' score que mois précédent'
+  } else if (difference == 0) {
+    return 'Même score que mois précédent'
+  } else {
+    return '-' + difference + ' score que mois précédent'
   }
-  else if(difference==0){
-    return "Même score que mois précédent";
-  }
-  else{
-    return difference +"moins que mois précédent";
-}
 }
 
 const createScores = async (dataRecent, dataPast, logger) => {
@@ -88,19 +86,19 @@ const createScores = async (dataRecent, dataPast, logger) => {
   let difference = await (dataPast.TX_SCORE_CONSOMMATION - dataRecent.TX_SCORE_CONSOMMATION)
 
   // text consommation
-  dataRecent.TX_SCORE_CONSOMMATION_COMPARE = await getDifferenceeAsString(difference);
+  dataRecent.TX_SCORE_CONSOMMATION_COMPARE = await getDifferenceeAsString(difference)
   // score qualite
   dataRecent.TX_SCORE_QUALITE = await getScoreQualite(dataRecent)
   dataPast.TX_SCORE_QUALITE = await getScoreQualite(dataPast)
   difference = await (dataPast.TX_SCORE_QUALITE - dataRecent.TX_SCORE_QUALITE)
   // text qualite
-  dataRecent.TX_SCORE_QUALITE_COMPARE =await getDifferenceeAsString(difference);
+  dataRecent.TX_SCORE_QUALITE_COMPARE = await getDifferenceeAsString(difference)
   // score security
   dataRecent.TX_SCORE_SECURITY = await getScoreSecurity(dataRecent)
   dataPast.TX_SCORE_SECURITY = await getScoreSecurity(dataPast)
   difference = await (dataPast.TX_SCORE_SECURITY - dataRecent.TX_SCORE_SECURITY)
   // text security
-  dataRecent.TX_SCORE_SECURITY_COMPARE = await getDifferenceeAsString(difference);
+  dataRecent.TX_SCORE_SECURITY_COMPARE = await getDifferenceeAsString(difference)
 
   return dataRecent
 }

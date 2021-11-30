@@ -7,65 +7,40 @@ import createMail from './src/views/createMail.js';
 import sendMail from './src/views/createMail.js';
 import Utils from './src/data/Utils.js';
 import createData from './src/data/createData.js';
+import init from './src/data/start.js';
 import getRandomQuote from './src/data/createQuote.js';
 import createScores from './src/data/createScores.js';
 import cron from 'node-cron';
 import fs from  'fs';
+
 const logger = new Logger(winston);
 const application = new Server(express, null, logger);
-/*
-
-FROM node:14.18-alpine
-WORKDIR /app
-COPY package*.json package-lock.json ./
-RUN npm i
-EXPOSE 8080
-CMD ["node","app.js"]
-*/ 
 
 (async () => {
-    try {
-       
-        await application.listen(process.env.APP_PORT);
-     
+  try {
+     await application.listen(process.env.APP_PORT);
 
-       //  cron.schedule('* * * * *', () => {logger.log('warn',"Task is running every minute " + new Date())});
-         let clusters=Utils.getClusters();
-         let randomQuote=getRandomQuote();
-         const date = new Date();
-         date.setDate(date.getDate() - 1);
-         const date2= new Date();
-         date2.setDate(date2.getDate() - 30);
-         //RFC 3339 format
-         const formattedDate = date.toISOString();
-         const formattedDate2 = date2.toISOString();
+    //  cron.schedule('* * * * *', () => {logger.log('warn',"Task is running every minute " + new Date())});
+    // get list of clusters
+    const clusters = await Utils.getClusters();
+    // get a Quote
+    const randomQuote = getRandomQuote()
+    // dates
+    const dateRecent = new Date()
+    dateRecent.setDate(dateRecent.getDate() - 1)
+    const datePrevious = new Date()
+    datePrevious.setDate(datePrevious.getDate() - 30)
+    // RFC 3339 format
+    const formattedDate = dateRecent.toISOString()
+    const formattedDatePrev = datePrevious.toISOString()
 
-         
-        //clusters.forEach(element => {
-         let returnObject= await Utils.getTenant('admin-hprd.caas.cagip.group.gca');
-         let data1=await createData("'admin-hprd.caas.cagip.group.gca'","'"+returnObject.tenant+"'",formattedDate,logger);
-         let data2=await createData("'hprd.caas.caa.group.gca'","'"+returnObject.tenant+"'",formattedDate2,logger);
-         let dataScores=await createScores(data1,data2);
-        
-         console.log(formattedDate);
-         console.log(formattedDate2);
-         console.log(dataScores);
-         data1.clusterName="admin-hprd.caas.cagip.group.gca";
-         data1.TX_KUBERNETES_PROJET=returnObject.numberOfProjects;
-         data1.TX_SUMMARY="Par rapport au mois précédent, ";
-         data1.TX_SUMMARY=data1.TX_SUMMARY+await Utils.getSummaryText(data1.TX_KUBERNETES_WORKER_NUMBER,data2.TX_KUBERNETES_WORKER_NUMBER,"Workers")+".";
-         //data1.TX_SUMMARY=data1.TX_SUMMARY+await Utils.getSummaryText(data1.TX_KUBERNETES_PROJET,data2.TX_KUBERNETES_PROJET,"Projet")+".";
-         let html_mail=await createMail(data1,dataScores,randomQuote,logger);
-         //console.log('html-mail',html_mail);
-        // await sendMail(html_mail,"'admin-hprd.caas.cagip.group.gca'",logger);
-        console.log(data1);
-        console.log(data2);
-         fs.writeFile('./my-page.html', html_mail, (error) => { console.log(error) });
+    // clusters.forEach(element => {
 
-     // });
-    } catch (e) {
-        console.error(e);
-        logger.log('warn', e.message);
-    }
-    
+     init(clusters[5], formattedDate, formattedDatePrev, randomQuote, logger)
+
+    // });
+  } catch (e) {
+    console.error(e)
+    logger.log('warn', e.message)
+  }
 })()
