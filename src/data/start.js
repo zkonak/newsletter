@@ -19,16 +19,16 @@ const init = async (cluster, dateRecent, datePrev, randomQuote, logger) => {
   dataRecent.TX_KUBERNETES_PROJET = objectTenant.numberOfProjects
   // create comparisons
   dataRecent.TX_SUMMARY = 'Par rapport au mois précédent, '
-  dataRecent.TX_SUMMARY = dataRecent.TX_SUMMARY + await Utils.getSummaryText(dataRecent.TX_KUBERNETES_WORKER_NUMBER, dataPrev.TX_KUBERNETES_WORKER_NUMBER, 'Workers') + '.'
+  dataRecent.TX_SUMMARY = dataRecent.TX_SUMMARY + await Utils.getSummaryText(dataRecent.TX_KUBERNETES_WORKER_NUMBER, dataPrev.TX_KUBERNETES_WORKER_NUMBER, 'Workers');
   // dataRecent.TX_SUMMARY=data1.TX_SUMMARY+await Utils.getSummaryText(dataRecent.TX_KUBERNETES_PROJET,dataPrev.TX_KUBERNETES_PROJET,"Projet")+".";
-  dataRecent.TX_KUBERNETES_CPU_POURCENT = await Utils.getPourcentText(dataRecent.TX_KUBERNETES_CPU_RESERVE, dataPrev.TX_KUBERNETES_CPU_UTILISE)
-  dataRecent.TX_KUBERNETES_MEMORY_POURCENT = await Utils.getPourcentText(dataRecent.TX_KUBERNETES_MEMORY_RESERVE_BYTE, dataPrev.TX_KUBERNETES_MEMORY_UTILISE_BYTE)
-
+  dataRecent.TX_KUBERNETES_CPU_POURCENT = await Utils.getPourcentText(dataRecent.TX_KUBERNETES_CPU_RESERVE, dataRecent.TX_KUBERNETES_CPU_UTILISE)
+  dataRecent.TX_KUBERNETES_MEMORY_POURCENT = await Utils.getPourcentText(dataRecent.TX_KUBERNETES_MEMORY_RESERVE_BYTE, dataRecent.TX_KUBERNETES_MEMORY_UTILISE_BYTE)
+  console.log(dataRecent)
   // create html
   const html_mail = await createMail(dataRecent, dataScores, randomQuote, logger)
 
   // write a file //send mail
-  fs.writeFile('./my-page.html', html_mail, (error) => { console.log(error) })
+  fs.writeFile('./'+cluster+'.html', html_mail, (error) => { console.log(error) })
 }
 
 export default init

@@ -75,7 +75,7 @@ const getDifferenceeAsString = async (difference) => {
   } else if (difference == 0) {
     return 'Même score que mois précédent'
   } else {
-    return '-' + difference + ' score que mois précédent'
+    return  difference + ' score que mois précédent'
   }
 }
 

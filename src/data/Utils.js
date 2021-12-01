@@ -53,7 +53,7 @@ const Utils = {
   },
 
   getPourcentText: async (dataReserve, dataUtil) => {
-    const text = Math.round(dataUtil * 100 / dataReserve, 0)
+    const text = Math.ceil(dataUtil * 100 / dataReserve)
 
     return text + '%'
   }

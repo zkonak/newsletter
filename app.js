@@ -20,7 +20,7 @@ const application = new Server(express, null, logger);
   try {
      await application.listen(process.env.APP_PORT);
 
-    //  cron.schedule('* * * * *', () => {logger.log('warn',"Task is running every minute " + new Date())});
+    //  cron.schedule('0 0 1 * *', () => {logger.log('warn',"Task is running every minute " + new Date())});
     // get list of clusters
     const clusters = await Utils.getClusters();
     // get a Quote
@@ -36,7 +36,7 @@ const application = new Server(express, null, logger);
 
     // clusters.forEach(element => {
 
-     init(clusters[5], formattedDate, formattedDatePrev, randomQuote, logger)
+     init(clusters[6], formattedDate, formattedDatePrev, randomQuote, logger)
 
     // });
   } catch (e) {

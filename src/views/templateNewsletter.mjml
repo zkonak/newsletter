@@ -144,7 +144,7 @@
       </mj-column>
       <mj-column width="10%"></mj-column>
 
-      <mj-column background-color="white" width="35%">
+      <mj-column background-color="white" width="40%">
       <mj-text font-size="20px" font-weight="bold" align="center">{{dataObject.TX_KUBERNETES_MEMORY_POURCENT}}</mj-text>
         <mj-text><span style="font-size:18px;font-weight:bold">{{dataObject.TX_KUBERNETES_MEMORY_UTILISE_BYTE}} </span>GB Memory utilisées</mj-text>
         <mj-divider border-color="#F45E43"></mj-divider>
